@@ -1,0 +1,27 @@
+{
+  "name": "sendit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:bondz/sendit.git",
+  "author": "Bond",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "@types/compression": "^0.0.36",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.0",
+    "@types/http-errors": "^1.6.1",
+    "@types/morgan": "^1.7.35",
+    "typescript": "^3.1.6"
+  }
+}
