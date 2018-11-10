@@ -1,4 +1,4 @@
-import createError from 'http-errors';
+import httpErrors from 'http-errors';
 import express from 'express';
 import path from 'path';
 import morgan from 'morgan';
@@ -14,19 +14,19 @@ const logFormat = process.env.NODE_ENV === 'production' ? 'combined' : 'dev';
 
 app.use(
   morgan(logFormat, {
-    skip: function(_req, res) {
+    skip: (_req, res) => {
       return res.statusCode < 400;
     },
-    stream: process.stderr
+    stream: process.stderr,
   })
 );
 
 app.use(
   morgan(logFormat, {
-    skip: function(_req, res) {
+    skip: (_req, res) => {
       return res.statusCode >= 400;
     },
-    stream: process.stdout
+    stream: process.stdout,
   })
 );
 
@@ -42,7 +42,7 @@ app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((_req, _res, next) => {
-  next(createError(404));
+  next(httpErrors(404));
 });
 
 // error handler
