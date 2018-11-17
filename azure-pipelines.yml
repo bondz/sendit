@@ -1,0 +1,19 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '8.x'
+    displayName: 'Install Node.js'
+
+  - script: yarn install
+    displayName: 'Install dependencies'
+
+  - script: yarn tsc
+    displayName: 'Compile source files'
+
+  - script: yarn tslint -p tsconfig.json
+    displayName: 'Lint source files'
+
+  - script: yarn test
+    displayName: 'Run test'
